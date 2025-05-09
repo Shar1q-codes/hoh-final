@@ -1,0 +1,30 @@
+export const smoothScroll = (targetId: string) => {
+  const element = document.getElementById(targetId)
+  if (element) {
+    element.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    })
+  }
+}
+
+export const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth',
+  })
+}
+
+export const scrollToSection = (sectionId: string) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    const offset = 80 // Adjust this value based on your header height
+    const elementPosition = element.getBoundingClientRect().top
+    const offsetPosition = elementPosition + window.pageYOffset - offset
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    })
+  }
+} 
