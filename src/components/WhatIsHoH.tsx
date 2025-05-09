@@ -1,27 +1,24 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
-import { images } from '@/utils/images'
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { images } from "@/utils/images";
 
 export default function WhatIsHoH() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start end', 'end start'],
-  })
+    offset: ["start end", "end start"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['20%', '-20%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
     <div ref={containerRef} className="relative min-h-screen bg-black py-20">
       {/* Background Images with Parallax */}
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 z-0"
-      >
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
         <div className="relative h-full w-full">
           <Image
             src={images.crowdCelebration}
@@ -57,7 +54,11 @@ export default function WhatIsHoH() {
               viewport={{ once: true }}
               className="mb-6 text-lg text-gray-300"
             >
-              Heroes of Hyderabad is a prestigious initiative that recognizes and celebrates the extraordinary individuals who have made significant contributions to our city's growth and development. These unsung heroes work tirelessly across various sectors to make Hyderabad a better place for everyone.
+              Heroes of Hyderabad is a prestigious initiative that recognizes
+              and celebrates the extraordinary individuals who have made
+              significant contributions to our city&rsquo;s growth and
+              development. These unsung heroes work tirelessly across various
+              sectors to make Hyderabad a better place for everyone.
             </motion.p>
             <motion.p
               initial={{ y: 20, opacity: 0 }}
@@ -66,7 +67,10 @@ export default function WhatIsHoH() {
               viewport={{ once: true }}
               className="text-lg text-gray-300"
             >
-              Through this platform, we aim to shine a spotlight on their remarkable achievements and inspire others to follow in their footsteps. Join us in honoring these exceptional individuals who embody the true spirit of Hyderabad.
+              Through this platform, we aim to shine a spotlight on their
+              remarkable achievements and inspire others to follow in their
+              footsteps. Join us in honoring these exceptional individuals who
+              embody the true spirit of Hyderabad.
             </motion.p>
           </div>
 
@@ -104,5 +108,5 @@ export default function WhatIsHoH() {
         </div>
       </motion.div>
     </div>
-  )
-} 
+  );
+}

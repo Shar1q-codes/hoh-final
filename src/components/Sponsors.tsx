@@ -1,52 +1,52 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
-import { fadeIn, slideUp } from '@/utils/animations'
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { fadeIn, slideUp } from "@/utils/animations";
 
 const sponsors = [
   {
-    name: 'TechCorp',
-    category: 'Platinum Sponsor',
-    logo: '/assets/images/sponsor-1.svg',
+    name: "TechCorp",
+    category: "Platinum Sponsor",
+    logo: "/assets/images/sponsor-1.svg",
   },
   {
-    name: 'Global Industries',
-    category: 'Gold Sponsor',
-    logo: '/assets/images/sponsor-2.svg',
+    name: "Global Industries",
+    category: "Gold Sponsor",
+    logo: "/assets/images/sponsor-2.svg",
   },
   {
-    name: 'City Bank',
-    category: 'Silver Sponsor',
-    logo: '/assets/images/sponsor-3.svg',
+    name: "City Bank",
+    category: "Silver Sponsor",
+    logo: "/assets/images/sponsor-3.svg",
   },
   {
-    name: 'Innovate Solutions',
-    category: 'Bronze Sponsor',
-    logo: '/assets/images/sponsor-4.svg',
+    name: "Innovate Solutions",
+    category: "Bronze Sponsor",
+    logo: "/assets/images/sponsor-4.svg",
   },
   {
-    name: 'Future Group',
-    category: 'Bronze Sponsor',
-    logo: '/assets/images/sponsor-5.svg',
+    name: "Future Group",
+    category: "Bronze Sponsor",
+    logo: "/assets/images/sponsor-5.svg",
   },
   {
-    name: 'Heritage Foundation',
-    category: 'Bronze Sponsor',
-    logo: '/assets/images/sponsor-6.svg',
+    name: "Heritage Foundation",
+    category: "Bronze Sponsor",
+    logo: "/assets/images/sponsor-6.svg",
   },
-]
+];
 
 const Sponsors = () => {
-  const ref = useRef(null)
+  const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ['start end', 'end start'],
-  })
+    offset: ["start end", "end start"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
 
   return (
     <section
@@ -112,8 +112,8 @@ const Sponsors = () => {
             Become a Sponsor
           </h3>
           <p className="mx-auto max-w-2xl font-poppins text-lg text-gray-300">
-            Join us in recognizing and celebrating Hyderabad's heroes. Contact us
-            to learn about sponsorship opportunities.
+            Join us in recognizing and celebrating Hyderabad&rsquo;s heroes.
+            Contact us to learn about sponsorship opportunities.
           </p>
           <button className="mt-6 rounded-full bg-gold px-8 py-3 font-poppins text-lg font-semibold text-black transition-all hover:bg-gold/90">
             Contact Us
@@ -122,15 +122,12 @@ const Sponsors = () => {
       </div>
 
       {/* Background Gradient */}
-      <motion.div
-        style={{ y, opacity }}
-        className="absolute inset-0 -z-10"
-      >
+      <motion.div style={{ y, opacity }} className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(212,175,55,0.05),_transparent_50%)]" />
       </motion.div>
     </section>
-  )
-}
+  );
+};
 
-export default Sponsors 
+export default Sponsors;

@@ -1,45 +1,42 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
-import { images } from '@/utils/images'
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { images } from "@/utils/images";
 
 const eventDetails = [
   {
-    title: 'Grand Ceremony',
+    title: "Grand Ceremony",
     description: "A prestigious awards ceremony honoring our city's heroes.",
     image: images.eventStage,
   },
   {
-    title: 'Networking',
-    description: 'Connect with like-minded individuals and community leaders.',
+    title: "Networking",
+    description: "Connect with like-minded individuals and community leaders.",
     image: images.crowdCelebration,
   },
   {
-    title: 'Celebration',
-    description: 'An evening of celebration, inspiration, and recognition.',
+    title: "Celebration",
+    description: "An evening of celebration, inspiration, and recognition.",
     image: images.communityLeaders,
   },
-]
+];
 
 export default function EventNight() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start end', 'end start'],
-  })
+    offset: ["start end", "end start"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['20%', '-20%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
     <div ref={containerRef} className="relative min-h-screen bg-black py-20">
       {/* Background with Parallax */}
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 z-0"
-      >
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
         <div className="relative h-full w-full">
           <Image
             src={images.eventStage}
@@ -67,7 +64,8 @@ export default function EventNight() {
             The Event Night
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-gray-300">
-            Join us for an unforgettable evening celebrating Hyderabad's finest heroes.
+            Join us for an unforgettable evening celebrating Hyderabad&rsquo;s
+            finest heroes.
           </p>
         </motion.div>
 
@@ -92,9 +90,7 @@ export default function EventNight() {
               <h3 className="mb-2 text-xl font-bold text-white">
                 {detail.title}
               </h3>
-              <p className="text-gray-300">
-                {detail.description}
-              </p>
+              <p className="text-gray-300">{detail.description}</p>
             </motion.div>
           ))}
         </div>
@@ -115,5 +111,5 @@ export default function EventNight() {
         </motion.div>
       </motion.div>
     </div>
-  )
-} 
+  );
+}
