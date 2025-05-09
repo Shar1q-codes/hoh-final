@@ -1,48 +1,47 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
-import { images } from '@/utils/images'
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { images } from "@/utils/images";
 
 const timelineEvents = [
   {
-    year: '2024',
-    title: 'A New Era',
-    description: 'Hyderabad stands at the cusp of unprecedented growth and transformation.',
+    year: "2024",
+    title: "A New Era",
+    description:
+      "Hyderabad stands at the cusp of unprecedented growth and transformation.",
     image: images.educators,
   },
   {
-    year: '2023',
-    title: 'Rising Momentum',
-    description: 'The city witnessed remarkable achievements in technology, healthcare, and education.',
+    year: "2023",
+    title: "Rising Momentum",
+    description:
+      "The city witnessed remarkable achievements in technology, healthcare, and education.",
     image: images.healthcare,
   },
   {
-    year: '2022',
-    title: 'Foundation',
-    description: 'The seeds of innovation and community development were sown.',
+    year: "2022",
+    title: "Foundation",
+    description: "The seeds of innovation and community development were sown.",
     image: images.innovators,
   },
-]
+];
 
 export default function WhyNow() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start end', 'end start'],
-  })
+    offset: ["start end", "end start"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['20%', '-20%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
     <div ref={containerRef} className="relative min-h-screen bg-black py-20">
       {/* Background with Parallax */}
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 z-0"
-      >
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
         <div className="relative h-full w-full">
           <Image
             src={images.judgesSilhouettes}
@@ -70,7 +69,8 @@ export default function WhyNow() {
             Why Now?
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-gray-300">
-            The time is ripe to recognize and celebrate the extraordinary individuals who are shaping Hyderabad's future.
+            The time is ripe to recognize and celebrate the extraordinary
+            individuals who are shaping Hyderabad&rsquo;s future.
           </p>
         </motion.div>
 
@@ -98,13 +98,11 @@ export default function WhyNow() {
               <h3 className="mb-2 text-xl font-bold text-white">
                 {event.title}
               </h3>
-              <p className="text-gray-300">
-                {event.description}
-              </p>
+              <p className="text-gray-300">{event.description}</p>
             </motion.div>
           ))}
         </div>
       </motion.div>
     </div>
-  )
-} 
+  );
+}
