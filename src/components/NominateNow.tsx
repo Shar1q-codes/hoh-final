@@ -1,64 +1,61 @@
-'use client'
+"use client";
 
-import { useState, useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import { fadeIn, slideUp } from '@/utils/animations'
-import Image from 'next/image'
-import { images } from '@/utils/images'
+import { useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+// import { fadeIn, slideUp } from '@/utils/animations'
+import Image from "next/image";
+import { images } from "@/utils/images";
 
-const categories = [
-  'Community Leader',
-  'Innovator',
-  'Educator',
-  'Healthcare Hero',
-  'Environmental Champion',
-  'Cultural Ambassador',
-  'Youth Leader',
-  'Social Entrepreneur',
-]
+// const categories = [
+//   "Community Leader",
+//   "Innovator",
+//   "Educator",
+//   "Healthcare Hero",
+//   "Environmental Champion",
+//   "Cultural Ambassador",
+//   "Youth Leader",
+//   "Social Entrepreneur",
+// ];
 
 const NominateNow = () => {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start end', 'end start'],
-  })
+    offset: ["start end", "end start"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['20%', '-20%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   const [formData, setFormData] = useState({
-    name: '',
-    designation: '',
-    organization: '',
-    phone: '',
-    email: '',
-    linkedin: '',
-    instagram: '',
-    facebook: '',
-    about: '',
-  })
+    name: "",
+    designation: "",
+    organization: "",
+    phone: "",
+    email: "",
+    linkedin: "",
+    instagram: "",
+    facebook: "",
+    about: "",
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     // Handle form submission
-    console.log('Form submitted:', formData)
-  }
+    console.log("Form submitted:", formData);
+  };
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   return (
     <div ref={containerRef} className="relative min-h-screen bg-black py-20">
       {/* Background with Parallax */}
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 z-0"
-      >
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
         <div className="relative h-full w-full">
           <Image
             src={images.crowdCelebration}
@@ -86,7 +83,8 @@ const NominateNow = () => {
             Nominate a Hero
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-gray-300">
-            Help us recognize the extraordinary individuals who make Hyderabad a better place.
+            Help us recognize the extraordinary individuals who make Hyderabad a
+            better place.
           </p>
         </motion.div>
 
@@ -101,7 +99,10 @@ const NominateNow = () => {
           {/* Required Fields */}
           <div className="grid gap-6 md:grid-cols-2">
             <div>
-              <label htmlFor="name" className="mb-2 block text-sm font-medium text-white">
+              <label
+                htmlFor="name"
+                className="mb-2 block text-sm font-medium text-white"
+              >
                 Name <span className="text-red-500">*</span>
               </label>
               <input
@@ -117,7 +118,10 @@ const NominateNow = () => {
             </div>
 
             <div>
-              <label htmlFor="designation" className="mb-2 block text-sm font-medium text-white">
+              <label
+                htmlFor="designation"
+                className="mb-2 block text-sm font-medium text-white"
+              >
                 Designation <span className="text-red-500">*</span>
               </label>
               <input
@@ -133,7 +137,10 @@ const NominateNow = () => {
             </div>
 
             <div>
-              <label htmlFor="organization" className="mb-2 block text-sm font-medium text-white">
+              <label
+                htmlFor="organization"
+                className="mb-2 block text-sm font-medium text-white"
+              >
                 Organization <span className="text-red-500">*</span>
               </label>
               <input
@@ -149,7 +156,10 @@ const NominateNow = () => {
             </div>
 
             <div>
-              <label htmlFor="phone" className="mb-2 block text-sm font-medium text-white">
+              <label
+                htmlFor="phone"
+                className="mb-2 block text-sm font-medium text-white"
+              >
                 Phone <span className="text-red-500">*</span>
               </label>
               <input
@@ -165,7 +175,10 @@ const NominateNow = () => {
             </div>
 
             <div>
-              <label htmlFor="email" className="mb-2 block text-sm font-medium text-white">
+              <label
+                htmlFor="email"
+                className="mb-2 block text-sm font-medium text-white"
+              >
                 Email <span className="text-red-500">*</span>
               </label>
               <input
@@ -184,7 +197,10 @@ const NominateNow = () => {
           {/* Social Media Links */}
           <div className="grid gap-6 md:grid-cols-3">
             <div>
-              <label htmlFor="linkedin" className="mb-2 block text-sm font-medium text-white">
+              <label
+                htmlFor="linkedin"
+                className="mb-2 block text-sm font-medium text-white"
+              >
                 LinkedIn
               </label>
               <input
@@ -199,7 +215,10 @@ const NominateNow = () => {
             </div>
 
             <div>
-              <label htmlFor="instagram" className="mb-2 block text-sm font-medium text-white">
+              <label
+                htmlFor="instagram"
+                className="mb-2 block text-sm font-medium text-white"
+              >
                 Instagram
               </label>
               <input
@@ -214,7 +233,10 @@ const NominateNow = () => {
             </div>
 
             <div>
-              <label htmlFor="facebook" className="mb-2 block text-sm font-medium text-white">
+              <label
+                htmlFor="facebook"
+                className="mb-2 block text-sm font-medium text-white"
+              >
                 Facebook
               </label>
               <input
@@ -231,7 +253,10 @@ const NominateNow = () => {
 
           {/* About Section */}
           <div>
-            <label htmlFor="about" className="mb-2 block text-sm font-medium text-white">
+            <label
+              htmlFor="about"
+              className="mb-2 block text-sm font-medium text-white"
+            >
               About You <span className="text-red-500">*</span>
             </label>
             <textarea
@@ -257,7 +282,7 @@ const NominateNow = () => {
         </motion.form>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default NominateNow 
+export default NominateNow;
