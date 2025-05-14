@@ -47,6 +47,24 @@ export default function Home() {
             <WhatIsHoH />
           </div>
         </ParallaxWrapper>
+        <ParallaxWrapper
+          speed={0.3}
+          className="mb-[100vh] sm:mb-[80vh] md:mb-[70vh]"
+        >
+          <div id="jury" className="scroll-mt-20">
+            <Jury />
+          </div>
+        </ParallaxWrapper>
+        <ParallaxWrapper speed={0.2}>
+          <div id="guests" className="scroll-mt-20">
+            <Guests />
+          </div>
+        </ParallaxWrapper>
+        <ParallaxWrapper speed={0.3}>
+          <div id="advisory" className="scroll-mt-20">
+            <Advisory />
+          </div>
+        </ParallaxWrapper>
         <ParallaxWrapper speed={0.4}>
           <div id="why-now" className="scroll-mt-20">
             <WhyNow />
@@ -78,24 +96,7 @@ export default function Home() {
             <NominateNow />
           </div>
         </ParallaxWrapper>
-        <ParallaxWrapper
-          speed={0.3}
-          className="mb-[100vh] sm:mb-[80vh] md:mb-[70vh]"
-        >
-          <div id="jury" className="scroll-mt-20">
-            <Jury />
-          </div>
-        </ParallaxWrapper>
-        <ParallaxWrapper speed={0.2}>
-          <div id="guests" className="scroll-mt-20">
-            <Guests />
-          </div>
-        </ParallaxWrapper>
-        <ParallaxWrapper speed={0.3}>
-          <div id="advisory" className="scroll-mt-20">
-            <Advisory />
-          </div>
-        </ParallaxWrapper>
+
         <ParallaxWrapper
           speed={0.2}
           className="mb-[100vh] sm:mb-[80vh] md:mb-[70vh]"

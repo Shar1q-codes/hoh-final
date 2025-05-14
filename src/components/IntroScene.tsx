@@ -1,62 +1,74 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
-import { images } from '@/utils/images'
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { images } from "@/utils/images";
 
 export default function IntroScene() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start start', 'end start'],
-  })
+    offset: ["start start", "end start"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['0%', '50%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
+  // Background Zoom-Out & Fade
+  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 3]);
+  const bgOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+
+  // Content Motion
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-100px"]);
 
   return (
-    <div ref={containerRef} className="relative h-[100vh] min-h-[600px] overflow-hidden">
-      {/* Background Image with Parallax */}
+    <div
+      ref={containerRef}
+      className="relative h-[100vh] min-h-[600px] overflow-hidden"
+    >
+      {/* FIXED-LOOKING BACKGROUND IMAGE */}
       <motion.div
-        style={{ y }}
-        className="absolute inset-0 z-0"
+        style={{ scale: bgScale, opacity: bgOpacity }}
+        className="fixed top-0 left-0 w-full h-screen z-0 will-change-transform overflow-hidden"
       >
-        <Image
-          src={images.hyderabadSkyline}
-          alt="Hyderabad Skyline"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative w-full h-full overflow-hidden">
+          <Image
+            src={images.hyderabadSkyline}
+            alt="Hyderabad Skyline"
+            fill
+            className="object-cover max-w-none"
+            priority
+          />
+        </div>
       </motion.div>
 
-      {/* Content */}
+      {/* HERO CONTENT */}
       <motion.div
-        style={{ opacity }}
+        style={{ opacity: contentOpacity, scale: contentScale, y: contentY }}
         className="relative z-10 flex h-full flex-col items-center justify-center px-4 text-center text-white"
       >
         <motion.h1
-          initial={{ y: 20, opacity: 0 }}
+          initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 1 }}
           className="mb-4 text-3xl font-bold sm:mb-6 sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl"
         >
           Heroes of Hyderabad
         </motion.h1>
+
         <motion.p
-          initial={{ y: 20, opacity: 0 }}
+          initial={{ y: 30, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 1, delay: 0.2 }}
           className="mb-6 max-w-2xl text-base sm:mb-8 sm:text-lg md:text-xl"
         >
           Celebrating the unsung heroes who make Hyderabad a better place
         </motion.p>
+
         <motion.div
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 1, delay: 0.4 }}
         >
           <a
             href="#nominate"
@@ -67,27 +79,25 @@ export default function IntroScene() {
         </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator */}
+      {/* SCROLL INDICATOR */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1 }}
+        transition={{ delay: 1.2 }}
         className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2"
       >
         <div className="h-8 w-6 rounded-full border-2 border-white p-1">
           <motion.div
-            animate={{
-              y: [0, 12, 0],
-            }}
+            animate={{ y: [0, 12, 0] }}
             transition={{
               duration: 1.5,
               repeat: Infinity,
-              repeatType: 'loop',
+              repeatType: "loop",
             }}
             className="h-2 w-2 rounded-full bg-white"
           />
         </div>
       </motion.div>
     </div>
-  )
-} 
+  );
+}
