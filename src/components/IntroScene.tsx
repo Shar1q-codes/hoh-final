@@ -24,12 +24,12 @@ export default function IntroScene() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[100vh] min-h-[600px] overflow-hidden z-50"
+      className="relative h-[100vh] min-h-[600px] overflow-hidden z-50 origin-top"
     >
       {/* CENTER ZOOMING CHARMINAR */}
       <motion.div
         style={{ scale: bgScale, opacity: bgOpacity }}
-        className="absolute top-0 left-0 w-full h-full z-10 overflow-hidden"
+        className="absolute top-0 left-0 w-full h-full z-10 overflow-hidden origin-top"
       >
         <Image
           src={images.hyderabadSkyline}

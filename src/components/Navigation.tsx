@@ -42,8 +42,8 @@ const Navigation = () => {
         isScrolled ? "" : "bg-transparent"
       }`}
     >
-      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="hidden md:flex justify-between items-center h-32 -mt-1 relative">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8 h-32">
+        <div className="hidden md:flex justify-between items-center h-full relative">
           {navItems.slice(0, 2).map((item) => (
             <div key={item.id} className="flex-1 flex justify-center">
               <button

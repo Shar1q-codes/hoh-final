@@ -22,7 +22,12 @@ const ParallaxWrapper = ({
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", `${speed * 100}%`]);
+  const y = useTransform(
+    scrollYProgress,
+    [0, 1],
+    isFirst ? ["0%", "0%"] : ["0%", `${speed * 100}%`]
+  );
+
   const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
 
   return (
