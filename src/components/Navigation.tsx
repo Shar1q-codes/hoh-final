@@ -38,12 +38,12 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed height-0 top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "" : "bg-transparent"
       }`}
     >
       <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="hidden md:flex justify-between items-center min-h-0 h-0 relative pointer-events-none">
+        <div className="hidden md:flex justify-between items-center h-32 -mt-1 relative">
           {navItems.slice(0, 2).map((item) => (
             <div key={item.id} className="flex-1 flex justify-center">
               <button
