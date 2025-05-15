@@ -1,16 +1,16 @@
 export const images = {
+  flag: "/assets/images/flag.jpeg",
+  newEra: "/assets/images/new-era.jpeg",
   logo: "/images/logo.png",
-  hyderabadSkyline: "/assets/images/charminar.jpeg",
+  hyderabadSkyline: "/assets/images/charminar (6).png",
   crowdCelebration:
     "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069",
-  communityLeaders:
-    "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070",
+  communityLeaders: "/assets/images/community-leaders.jpeg",
   innovators:
     "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070",
   educators:
     "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?q=80&w=2022",
-  healthcare:
-    "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070",
+  healthcare: "/assets/images/healthcare.jpeg",
   judgesSilhouettes:
     "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070",
   eventStage:

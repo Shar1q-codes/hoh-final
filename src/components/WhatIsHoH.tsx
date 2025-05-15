@@ -98,7 +98,7 @@ export default function WhatIsHoH() {
               className="absolute -bottom-8 -right-8 h-[200px] w-[200px] md:h-[250px] md:w-[250px]"
             >
               <Image
-                src={images.innovators}
+                src={images.flag}
                 alt="Innovators"
                 fill
                 className="rounded-lg object-cover"

@@ -11,7 +11,7 @@ const timelineEvents = [
     title: "A New Era",
     description:
       "Hyderabad stands at the cusp of unprecedented growth and transformation.",
-    image: images.educators,
+    image: images.newEra,
   },
   {
     year: "2023",
@@ -89,12 +89,10 @@ export default function WhyNow() {
                   src={event.image}
                   alt={event.title}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-fit transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
-              <span className="mb-2 block text-sm font-semibold text-gold">
-                {event.year}
-              </span>
+
               <h3 className="mb-2 text-xl font-bold text-white">
                 {event.title}
               </h3>

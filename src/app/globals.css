@@ -31,5 +31,5 @@ body {
   padding: 0;
   width: 100% !important;
   overflow-x: hidden !important;
-  position: relative;
+  /* position: relative; */
 }

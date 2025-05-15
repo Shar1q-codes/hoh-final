@@ -24,22 +24,20 @@ export default function IntroScene() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[100vh] min-h-[600px] overflow-hidden"
+      className="relative h-[100vh] min-h-[600px] overflow-hidden z-50"
     >
-      {/* FIXED-LOOKING BACKGROUND IMAGE */}
+      {/* CENTER ZOOMING CHARMINAR */}
       <motion.div
         style={{ scale: bgScale, opacity: bgOpacity }}
-        className="fixed top-0 left-0 w-full h-screen z-0 will-change-transform overflow-hidden"
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[100vw] z-[-1] will-change-transform overflow-hidden"
       >
-        <div className="relative w-full h-full overflow-hidden">
-          <Image
-            src={images.hyderabadSkyline}
-            alt="Hyderabad Skyline"
-            fill
-            className="object-cover max-w-none"
-            priority
-          />
-        </div>
+        <Image
+          src={images.hyderabadSkyline}
+          alt="Center Charminar"
+          fill
+          className="object-fit max-w-none"
+          priority
+        />
       </motion.div>
 
       {/* HERO CONTENT */}
