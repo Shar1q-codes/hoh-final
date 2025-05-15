@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-// import { motion } from 'framer-motion'
 import Navigation from "@/components/Navigation";
 import IntroScene from "@/components/IntroScene";
 import WhatIsHoH from "@/components/WhatIsHoH";
@@ -19,14 +18,10 @@ import ParallaxWrapper from "@/components/ParallaxWrapper";
 
 export default function Home() {
   useEffect(() => {
-    // Disable scroll on mount
     document.body.style.overflow = "hidden";
-
-    // Enable scroll after intro animation
     const timer = setTimeout(() => {
       document.body.style.overflow = "auto";
     }, 3000);
-
     return () => {
       clearTimeout(timer);
       document.body.style.overflow = "auto";
@@ -35,54 +30,73 @@ export default function Home() {
 
   return (
     <>
-      <div
-        className="fixed top-0 left-0 w-full h-full bg-black "
-        style={{ zIndex: -10 }}
-      />
+      {/* Background fallback */}
+      <div className="fixed top-0 left-0 w-full h-full bg-black -z-20" />
+
       <div className="relative z-0">
         <Navigation />
-        <div className="space-y-[100vh] sm:space-y-[80vh] md:space-y-[70vh]">
-          <ParallaxWrapper speed={0.2}>
-            <div id="intro" className="scroll-mt-20">
+
+        <div>
+          <ParallaxWrapper speed={0.2} isFirst>
+            <div id="intro">
               <IntroScene />
             </div>
           </ParallaxWrapper>
-          <ParallaxWrapper speed={0.3}>
+
+          <ParallaxWrapper
+            speed={0.3}
+            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+          >
             <div id="what-is-hoh" className="scroll-mt-20">
               <WhatIsHoH />
             </div>
           </ParallaxWrapper>
+
           <ParallaxWrapper
             speed={0.3}
-            className="mb-[100vh] sm:mb-[80vh] md:mb-[70vh]"
+            className="mt-[100vh] mb-[100vh] sm:mt-[80vh] sm:mb-[80vh] md:mt-[70vh] md:mb-[70vh]"
           >
             <div id="jury" className="scroll-mt-20">
               <Jury />
             </div>
           </ParallaxWrapper>
-          <ParallaxWrapper speed={0.2}>
+
+          <ParallaxWrapper
+            speed={0.2}
+            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+          >
             <div id="guests" className="scroll-mt-20">
               <Guests />
             </div>
           </ParallaxWrapper>
-          <ParallaxWrapper speed={0.3}>
+
+          <ParallaxWrapper
+            speed={0.3}
+            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+          >
             <div id="advisory" className="scroll-mt-20">
               <Advisory />
             </div>
           </ParallaxWrapper>
-          <ParallaxWrapper speed={0.4}>
+
+          <ParallaxWrapper
+            speed={0.4}
+            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+          >
             <div id="why-now" className="scroll-mt-20">
               <WhyNow />
             </div>
           </ParallaxWrapper>
+
           <ParallaxWrapper
             speed={0.3}
-            className="mb-[100vh] sm:mb-[80vh] md:mb-[70vh]"
+            className="mt-[100vh] mb-[100vh] sm:mt-[80vh] sm:mb-[80vh] md:mt-[70vh] md:mb-[70vh]"
           >
             <div id="who-nominate" className="scroll-mt-20">
               <WhoNominate />
             </div>
           </ParallaxWrapper>
+
           <ParallaxWrapper
             speed={0.4}
             className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
@@ -91,12 +105,20 @@ export default function Home() {
               <WhyUnique />
             </div>
           </ParallaxWrapper>
-          <ParallaxWrapper speed={0.3}>
+
+          <ParallaxWrapper
+            speed={0.3}
+            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+          >
             <div id="event-night" className="scroll-mt-20">
               <EventNight />
             </div>
           </ParallaxWrapper>
-          <ParallaxWrapper speed={0.2}>
+
+          <ParallaxWrapper
+            speed={0.2}
+            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+          >
             <div id="nominate" className="scroll-mt-20">
               <NominateNow />
             </div>
@@ -104,13 +126,14 @@ export default function Home() {
 
           <ParallaxWrapper
             speed={0.2}
-            className="mb-[100vh] sm:mb-[80vh] md:mb-[70vh]"
+            className="mt-[100vh] mb-[100vh] sm:mt-[80vh] sm:mb-[80vh] md:mt-[70vh] md:mb-[70vh]"
           >
             <div id="sponsors" className="scroll-mt-20">
               <Sponsors />
             </div>
           </ParallaxWrapper>
         </div>
+
         <Footer />
       </div>
     </>

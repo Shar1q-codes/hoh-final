@@ -43,7 +43,7 @@ const Navigation = () => {
       }`}
     >
       <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="hidden md:flex justify-between items-center h-32 -mt-1 relative">
+        <div className="hidden md:flex justify-between items-center min-h-0 h-0 relative pointer-events-none">
           {navItems.slice(0, 2).map((item) => (
             <div key={item.id} className="flex-1 flex justify-center">
               <button

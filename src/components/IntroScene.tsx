@@ -29,7 +29,7 @@ export default function IntroScene() {
       {/* CENTER ZOOMING CHARMINAR */}
       <motion.div
         style={{ scale: bgScale, opacity: bgOpacity }}
-        className="absolute top-0 left-1/2 -translate-x-1/2 h-full w-[100vw] z-[-1] will-change-transform overflow-hidden"
+        className="relative h-screen overflow-hidden z-10 border-t-4 border-green-500"
       >
         <Image
           src={images.hyderabadSkyline}
