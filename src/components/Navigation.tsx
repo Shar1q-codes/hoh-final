@@ -38,7 +38,7 @@ const Navigation = () => {
 
   return (
     <nav
-      className={`fixed height-0 top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "" : "bg-transparent"
       }`}
     >
@@ -51,7 +51,7 @@ const Navigation = () => {
                   navRefs.current[item.id] = el;
                 }}
                 onClick={() => scrollToSection(item.id)}
-                className="relative flex flex-col items-center text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-200 cursor-pointer"
+                className="relative flex flex-col items-center text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-200 cursor-pointer drop-shadow-md"
               >
                 {item.label}
                 <motion.div
@@ -70,7 +70,7 @@ const Navigation = () => {
           <div className="flex-1 flex justify-center">
             <Link href="/" className="block">
               {!logoError ? (
-                <div className="relative w-[240px] h-[160px] cursor-pointer">
+                <div className="relative w-[240px] h-[160px] cursor-pointer drop-shadow-md">
                   <Image
                     src="/assets/images/logo.png"
                     alt="Heroes of Hyderabad"
@@ -81,7 +81,9 @@ const Navigation = () => {
                   />
                 </div>
               ) : (
-                <div className="text-3xl font-bold text-gold">HoH</div>
+                <div className="text-3xl font-bold text-gold drop-shadow-md">
+                  HoH
+                </div>
               )}
             </Link>
           </div>
@@ -93,7 +95,7 @@ const Navigation = () => {
                   navRefs.current[item.id] = el;
                 }}
                 onClick={() => scrollToSection(item.id)}
-                className="relative flex flex-col items-center text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-200 cursor-pointer"
+                className="relative flex flex-col items-center text-white hover:text-gold px-3 py-2 text-sm font-medium transition duration-200 cursor-pointer drop-shadow-md"
               >
                 {item.label}
                 <motion.div
@@ -113,7 +115,7 @@ const Navigation = () => {
         <div className="md:hidden flex justify-end items-center h-20">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-white hover:text-gold focus:outline-none"
+            className="text-white hover:text-gold focus:outline-none drop-shadow-md"
           >
             <svg
               className="h-6 w-6"
@@ -155,7 +157,7 @@ const Navigation = () => {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-white hover:text-gold block w-full text-left px-3 py-2 text-base font-medium cursor-pointer"
+                  className="text-white hover:text-gold block w-full text-left px-3 py-2 text-base font-medium cursor-pointer drop-shadow-md"
                 >
                   {item.label}
                 </button>

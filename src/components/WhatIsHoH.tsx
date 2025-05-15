@@ -16,7 +16,10 @@ export default function WhatIsHoH() {
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <div ref={containerRef} className="relative min-h-screen bg-black py-20">
+    <div
+      ref={containerRef}
+      className="relative z-10 min-h-screen bg-black pt-[40vh] pb-20"
+    >
       {/* Background Images with Parallax */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
         <div className="relative h-full w-full">
@@ -24,7 +27,7 @@ export default function WhatIsHoH() {
             src={images.crowdCelebration}
             alt="Crowd Celebration"
             fill
-            className="object-cover opacity-20"
+            className="object-cover opacity-10 transition-opacity duration-700"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black" />
         </div>

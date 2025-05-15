@@ -22,25 +22,20 @@ const ParallaxWrapper = ({
     offset: ["start end", "end start"],
   });
 
+  // For motion: parallax Y shift
   const y = useTransform(
     scrollYProgress,
     [0, 1],
-    isFirst ? ["0%", "0%"] : ["0%", `${speed * 100}%`]
+    isFirst ? ["0%", "0%"] : [`${speed * 100}%`, "0%"]
   );
-
-  const opacity = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]);
 
   return (
     <motion.div
       ref={ref}
-      style={{ y, opacity }}
+      style={{ y }}
       className={`relative ${
-        !isFirst ? "min-h-[100vh] sm:min-h-[80vh] md:min-h-[70vh]" : ""
-      } ${className}`}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-      transition={{ duration: 1.2 }}
+        !isFirst ? "min-h-screen" : "h-screen"
+      } z-[1] ${className}`}
     >
       {children}
     </motion.div>

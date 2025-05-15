@@ -37,21 +37,17 @@ export default function Home() {
         <Navigation />
 
         <div>
-          <ParallaxWrapper speed={0.2} isFirst>
+          <ParallaxWrapper speed={0} isFirst>
             <div id="intro">
               <IntroScene />
             </div>
           </ParallaxWrapper>
 
-          <ParallaxWrapper
-            speed={0.3}
-            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
-          >
-            <div id="what-is-hoh" className="scroll-mt-20">
+          <ParallaxWrapper speed={0.2} className="mt-[-10vh]">
+            <div id="what-is-hoh">
               <WhatIsHoH />
             </div>
           </ParallaxWrapper>
-
           <ParallaxWrapper
             speed={0.3}
             className="mt-[100vh] mb-[100vh] sm:mt-[80vh] sm:mb-[80vh] md:mt-[70vh] md:mb-[70vh]"
