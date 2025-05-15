@@ -24,7 +24,7 @@ export default function IntroScene() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[100vh] min-h-[600px] overflow-hidden z-50 origin-top"
+      className="sticky top-0 h-[100vh] min-h-[600px] overflow-hidden z-50 origin-top"
     >
       {/* CENTER ZOOMING CHARMINAR */}
       <motion.div

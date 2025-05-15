@@ -50,7 +50,7 @@ export default function Home() {
           </ParallaxWrapper>
           <ParallaxWrapper
             speed={0.3}
-            className="mt-[100vh] mb-[100vh] sm:mt-[80vh] sm:mb-[80vh] md:mt-[70vh] md:mb-[70vh]"
+            className="mt-[30vh] mb-[100vh] sm:mt-[80vh] sm:mb-[80vh] md:mt-[70vh] md:mb-[70vh]"
           >
             <div id="jury" className="scroll-mt-20">
               <Jury />
@@ -59,7 +59,7 @@ export default function Home() {
 
           <ParallaxWrapper
             speed={0.2}
-            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+            className="mt-[20vh] sm:mt-[80vh] md:mt-[70vh]"
           >
             <div id="guests" className="scroll-mt-20">
               <Guests />
@@ -68,7 +68,7 @@ export default function Home() {
 
           <ParallaxWrapper
             speed={0.3}
-            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+            className="mt-[30vh] sm:mt-[80vh] md:mt-[70vh]"
           >
             <div id="advisory" className="scroll-mt-20">
               <Advisory />
@@ -77,7 +77,7 @@ export default function Home() {
 
           <ParallaxWrapper
             speed={0.4}
-            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+            className="mt-[20vh] sm:mt-[80vh] md:mt-[70vh]"
           >
             <div id="why-now" className="scroll-mt-20">
               <WhyNow />
@@ -86,7 +86,7 @@ export default function Home() {
 
           <ParallaxWrapper
             speed={0.3}
-            className="mt-[100vh] mb-[100vh] sm:mt-[80vh] sm:mb-[80vh] md:mt-[70vh] md:mb-[70vh]"
+            className="mt-[30vh] mb-[100vh] sm:mt-[80vh] sm:mb-[80vh] md:mt-[70vh] md:mb-[70vh]"
           >
             <div id="who-nominate" className="scroll-mt-20">
               <WhoNominate />
@@ -95,7 +95,7 @@ export default function Home() {
 
           <ParallaxWrapper
             speed={0.4}
-            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+            className="mt-[30vh] sm:mt-[80vh] md:mt-[70vh]"
           >
             <div id="why-unique" className="scroll-mt-20">
               <WhyUnique />
@@ -104,7 +104,7 @@ export default function Home() {
 
           <ParallaxWrapper
             speed={0.3}
-            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+            className="mt-[30vh] sm:mt-[80vh] md:mt-[70vh]"
           >
             <div id="event-night" className="scroll-mt-20">
               <EventNight />
@@ -113,7 +113,7 @@ export default function Home() {
 
           <ParallaxWrapper
             speed={0.2}
-            className="mt-[100vh] sm:mt-[80vh] md:mt-[70vh]"
+            className="mt-[30vh] sm:mt-[80vh] md:mt-[70vh]"
           >
             <div id="nominate" className="scroll-mt-20">
               <NominateNow />
@@ -122,7 +122,7 @@ export default function Home() {
 
           <ParallaxWrapper
             speed={0.2}
-            className="mt-[100vh] mb-[100vh] sm:mt-[80vh] sm:mb-[80vh] md:mt-[70vh] md:mb-[70vh]"
+            className="mt-[30vh] mb-[10vh] sm:mt-[80vh] sm:mb-[80vh] md:mt-[70vh] md:mb-[70vh]"
           >
             <div id="sponsors" className="scroll-mt-20">
               <Sponsors />

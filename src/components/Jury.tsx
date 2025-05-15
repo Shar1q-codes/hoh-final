@@ -1,60 +1,57 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
-import { images } from '@/utils/images'
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { images } from "@/utils/images";
 
 const juryMembers = [
   {
-    name: 'Dr. Sarah Johnson',
-    role: 'Education Expert',
-    bio: 'Leading educational reform initiatives in Hyderabad for over 15 years.',
+    name: "Dr. Sarah Johnson",
+    role: "Education Expert",
+    bio: "Leading educational reform initiatives in Hyderabad for over 15 years.",
     image: images.jury[0],
   },
   {
-    name: 'Rajesh Kumar',
-    role: 'Tech Innovator',
-    bio: 'Pioneering sustainable technology solutions for urban development.',
+    name: "Rajesh Kumar",
+    role: "Tech Innovator",
+    bio: "Pioneering sustainable technology solutions for urban development.",
     image: images.jury[1],
   },
   {
-    name: 'Dr. Priya Sharma',
-    role: 'Healthcare Leader',
-    bio: 'Transforming healthcare accessibility in underserved communities.',
+    name: "Dr. Priya Sharma",
+    role: "Healthcare Leader",
+    bio: "Transforming healthcare accessibility in underserved communities.",
     image: images.jury[2],
   },
   {
-    name: 'Amit Patel',
-    role: 'Social Entrepreneur',
-    bio: 'Creating impactful social enterprises that address local challenges.',
+    name: "Amit Patel",
+    role: "Social Entrepreneur",
+    bio: "Creating impactful social enterprises that address local challenges.",
     image: images.jury[3],
   },
   {
-    name: 'Meera Reddy',
-    role: 'Cultural Ambassador',
+    name: "Meera Reddy",
+    role: "Cultural Ambassador",
     bio: "Preserving and promoting Hyderabad's rich cultural heritage.",
     image: images.jury[4],
-  }
-]
+  },
+];
 
 export default function Jury() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start end', 'end start'],
-  })
+    offset: ["start end", "end start"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['20%', '-20%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
-    <div ref={containerRef} className="relative min-h-screen bg-black py-20">
+    <div ref={containerRef} className="relative min-h-screen bg-black py--20">
       {/* Background with Parallax */}
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 z-0"
-      >
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
         <div className="relative h-full w-full">
           <Image
             src={images.judgesSilhouettes}
@@ -82,7 +79,8 @@ export default function Jury() {
             Our Jury
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-gray-300">
-            Meet the distinguished panel of experts who will evaluate and select our heroes.
+            Meet the distinguished panel of experts who will evaluate and select
+            our heroes.
           </p>
         </motion.div>
 
@@ -110,13 +108,11 @@ export default function Jury() {
               <p className="mb-2 text-sm font-semibold text-gold">
                 {member.role}
               </p>
-              <p className="text-gray-300">
-                {member.bio}
-              </p>
+              <p className="text-gray-300">{member.bio}</p>
             </motion.div>
           ))}
         </div>
       </motion.div>
     </div>
-  )
-} 
+  );
+}
