@@ -12,13 +12,18 @@ export default function WhatIsHoH() {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  // Delay opacity fade-in so hero finishes
+  const y = useTransform(scrollYProgress, [0.2, 1], ["20%", "-20%"]);
+  const opacity = useTransform(
+    scrollYProgress,
+    [0.2, 0.4, 0.8, 1],
+    [0, 1, 1, 0]
+  );
 
   return (
     <div
       ref={containerRef}
-      className="relative z-10 min-h-screen pt-[40vh] bg-black pb-20"
+      className="relative z-10 min-h-[150vh] pt-[40vh] bg-black pb-20"
     >
       {/* Background Images with Parallax */}
       <motion.div style={{ y }} className="absolute inset-0 z-0">
