@@ -19,10 +19,9 @@ const ParallaxWrapper = ({
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start end", "end start"],
+    offset: ["start 80%", "end start"], // ✅ Delay section entry
   });
 
-  // For motion: parallax Y shift
   const y = useTransform(
     scrollYProgress,
     [0, 1],
@@ -32,7 +31,7 @@ const ParallaxWrapper = ({
   return (
     <motion.div
       ref={ref}
-      style={{ y }}
+      style={{ y, willChange: "transform" }} // ✅ GPU boost + cleaner animation
       className={`relative ${
         !isFirst ? "min-h-screen" : "h-screen"
       } z-[1] ${className}`}

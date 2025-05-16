@@ -25,7 +25,7 @@ export default function IntroScene() {
   return (
     <div
       ref={containerRef}
-      className="relative h-[200vh] z-50" // Scroll trap zone
+      className="relative h-[200vh] z-[100]" // ✅ Top layer scroll trap
     >
       {/* Sticky Hero Layer */}
       <div className="sticky top-0 h-screen min-h-[600px] overflow-hidden origin-top">

@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <>
       {/* Global background fallback */}
-      <div className="fixed top-0 left-0 w-full h-full bg-black -z-20" />
+      <div className="fixed top-0 left-0 w-full h-full bg-white -z-20" />
 
       <div className="relative z-0">
         <Navigation />
