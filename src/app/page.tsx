@@ -35,17 +35,15 @@ export default function Home() {
   return (
     <>
       {/* Global background fallback */}
-      <div className="fixed top-0 left-0 w-full h-full bg-white -z-20" />
+      {/* <div className="fixed top-0 left-0 w-full h-full bg-white -z-20" /> */}
 
       <div className="relative z-0">
         <Navigation />
 
         {/* Hero Section - Topmost Layer */}
-        <ParallaxWrapper speed={0} isFirst className="relative z-50">
-          <div id="intro">
-            <IntroScene />
-          </div>
-        </ParallaxWrapper>
+        <div id="intro" className="relative z-[100]">
+          <IntroScene />
+        </div>
 
         {/* Other Sections - Muted Until Intro Completes */}
         <div
@@ -53,7 +51,8 @@ export default function Home() {
             introLock ? "pointer-events-none opacity-0" : "opacity-100"
           } transition-opacity duration-700`}
         >
-          <ParallaxWrapper speed={0.2} className="relative z-40 mt-[-10vh]">
+          {/* FIX: Add spacing so section appears after hero finishes */}
+          <ParallaxWrapper speed={0.2} className="relative z-40 mt-[50vh]">
             <div id="what-is-hoh">
               <WhatIsHoH />
             </div>
