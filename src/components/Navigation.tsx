@@ -13,7 +13,7 @@ const Navigation = () => {
 
   const navItems = [
     { id: "jury", label: "Jury" },
-    { id: "guests", label: "Guests" },
+    { id: "guests", label: "Dignitaries" },
     { id: "advisory", label: "Advisory" },
     { id: "sponsors", label: "Sponsors" },
   ];

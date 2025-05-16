@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { images } from "@/utils/images";
@@ -8,38 +8,48 @@ import { images } from "@/utils/images";
 export default function IntroScene() {
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Responsive image logic
+  const [heroImage, setHeroImage] = useState(images.hyderabadSkyline);
+
+  useEffect(() => {
+    const updateImage = () => {
+      const isMobile = window.innerWidth <= 768;
+      setHeroImage(isMobile ? images.heroMobile : images.hyderabadSkyline);
+    };
+
+    updateImage();
+    window.addEventListener("resize", updateImage);
+    return () => window.removeEventListener("resize", updateImage);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  // Scene fade out
-  const sceneOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
-  const sceneScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
+  const sceneOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const sceneScale = useTransform(scrollYProgress, [0, 1], [1, 3]);
 
-  // Content motion
   const contentOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-100px"]);
 
   return (
-    <div ref={containerRef} className="h-[130vh] relative z-[10]">
-      {/* Fullscreen Fixed Layer */}
+    <div ref={containerRef} className="h-[100vh] relative z-[10]">
       <motion.div
         style={{ opacity: sceneOpacity }}
         className="fixed top-0 left-0 w-full h-screen z-[150] bg-black isolate overflow-hidden"
       >
-        {/* Background Image */}
         <motion.div
           style={{ scale: sceneScale }}
           className="absolute inset-0 z-10"
         >
           <Image
-            src={images.hyderabadSkyline}
-            alt="Center Charminar"
+            src={heroImage}
+            alt="Charminar"
             fill
             priority
-            className="object-fit"
+            className="object-contain"
           />
         </motion.div>
 

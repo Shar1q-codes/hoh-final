@@ -33,3 +33,8 @@ body {
   overflow-x: hidden !important;
   /* position: relative; */
 }
+
+.section-spacing {
+  margin-top: clamp(4rem, 8vh, 7rem);
+  margin-bottom: clamp(4rem, 8vh, 7rem);
+}

@@ -2,7 +2,8 @@ export const images = {
   flag: "/assets/images/flag.jpeg",
   newEra: "/assets/images/new-era.jpeg",
   logo: "/images/logo.png",
-  hyderabadSkyline: "/assets/images/charminar (6).png",
+  hyderabadSkyline: "/assets/images/desktop_21_9_v2.jpg",
+  heroMobile: "/assets/images/mobile_9_16_v2.jpg",
   crowdCelebration:
     "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=2069",
   communityLeaders: "/assets/images/community-leaders.jpeg",

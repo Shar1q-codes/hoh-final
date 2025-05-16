@@ -1,48 +1,45 @@
-'use client'
+"use client";
 
-import { useRef } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
-import Image from 'next/image'
-import { images } from '@/utils/images'
+import { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import Image from "next/image";
+import { images } from "@/utils/images";
 
 const specialGuests = [
   {
-    name: 'Dr. Rahul Verma',
-    role: 'Chief Guest',
-    bio: 'Renowned social activist and former UN Goodwill Ambassador.',
+    name: "Dr. Rahul Verma",
+    role: "Chief Guest",
+    bio: "Renowned social activist and former UN Goodwill Ambassador.",
     image: images.guests[0],
   },
   {
-    name: 'Priya Sharma',
-    role: 'Guest of Honor',
-    bio: 'Award-winning journalist and documentary filmmaker.',
+    name: "Priya Sharma",
+    role: "Guest of Honor",
+    bio: "Award-winning journalist and documentary filmmaker.",
     image: images.guests[1],
   },
   {
-    name: 'Dr. Maya Patel',
-    role: 'Keynote Speaker',
-    bio: 'Leading expert in sustainable urban development.',
+    name: "Dr. Maya Patel",
+    role: "Keynote Speaker",
+    bio: "Leading expert in sustainable urban development.",
     image: images.guests[2],
   },
-]
+];
 
 export default function Guests() {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ['start end', 'end start'],
-  })
+    offset: ["start end", "end start"],
+  });
 
-  const y = useTransform(scrollYProgress, [0, 1], ['20%', '-20%'])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0])
+  const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
 
   return (
     <div ref={containerRef} className="relative min-h-screen bg-black py-20">
       {/* Background with Parallax */}
-      <motion.div
-        style={{ y }}
-        className="absolute inset-0 z-0"
-      >
+      <motion.div style={{ y }} className="absolute inset-0 z-0">
         <div className="relative h-full w-full">
           <Image
             src={images.eventStage}
@@ -67,10 +64,11 @@ export default function Guests() {
           className="mb-16 text-center"
         >
           <h2 className="mb-6 text-3xl font-bold text-white md:text-4xl">
-            Special Guests
+            Dignitaries
           </h2>
           <p className="mx-auto max-w-3xl text-lg text-gray-300">
-            Join us in welcoming our distinguished guests who will grace the ceremony.
+            Join us in welcoming our distinguished guests who will grace the
+            ceremony.
           </p>
         </motion.div>
 
@@ -98,9 +96,7 @@ export default function Guests() {
               <p className="mb-2 text-sm font-semibold text-gold">
                 {guest.role}
               </p>
-              <p className="text-gray-300">
-                {guest.bio}
-              </p>
+              <p className="text-gray-300">{guest.bio}</p>
             </motion.div>
           ))}
         </div>
@@ -121,5 +117,5 @@ export default function Guests() {
         </motion.div>
       </motion.div>
     </div>
-  )
-} 
+  );
+}
