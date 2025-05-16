@@ -1,11 +1,11 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import { fadeIn } from '@/utils/animations'
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { fadeIn } from "@/utils/animations";
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="relative bg-black py-12">
@@ -34,7 +34,7 @@ const Footer = () => {
             variants={fadeIn}
           >
             <h4 className="mb-4 font-poppins text-lg font-semibold text-white">
-              Quick Links
+              Useful Links
             </h4>
             <ul className="space-y-2">
               <li>
@@ -42,7 +42,7 @@ const Footer = () => {
                   href="#intro"
                   className="font-poppins text-sm text-gray-300 transition-colors hover:text-gold"
                 >
-                  Home
+                  Terms & Conditions
                 </Link>
               </li>
               <li>
@@ -50,23 +50,23 @@ const Footer = () => {
                   href="#what-is-hoh"
                   className="font-poppins text-sm text-gray-300 transition-colors hover:text-gold"
                 >
-                  About
+                  Privacy Policy
                 </Link>
               </li>
               <li>
                 <Link
                   href="#nominate-now"
-                  className="font-poppins text-sm text-gray-300 transition-colors hover:text-gold"
+                  className="font-poppins text-sm text-gray-300 transition-colors hover:text-gold cursor-pointer"
                 >
-                  Nominate
+                  Refund Policy
                 </Link>
               </li>
               <li>
                 <Link
                   href="#event-night"
-                  className="font-poppins text-sm text-gray-300 transition-colors hover:text-gold"
+                  className="font-poppins text-sm text-gray-300 transition-colors hover:text-gold cursor-pointer"
                 >
-                  Event
+                  Pricing & Deliverables
                 </Link>
               </li>
             </ul>
@@ -169,7 +169,7 @@ const Footer = () => {
         </motion.div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer 
+export default Footer;

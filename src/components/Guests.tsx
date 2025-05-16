@@ -7,22 +7,40 @@ import { images } from "@/utils/images";
 
 const specialGuests = [
   {
-    name: "Dr. Rahul Verma",
-    role: "Chief Guest",
+    name: "Shilpa Reddy",
+    role: "Mrs. India | Fashion Designer",
     bio: "Renowned social activist and former UN Goodwill Ambassador.",
     image: images.guests[0],
   },
   {
-    name: "Priya Sharma",
-    role: "Guest of Honor",
+    name: "Aditi Arya Kotak",
+    role: "Founder - Alum-n-i",
     bio: "Award-winning journalist and documentary filmmaker.",
     image: images.guests[1],
   },
   {
-    name: "Dr. Maya Patel",
+    name: "Jayesh Ranjan",
     role: "Keynote Speaker",
     bio: "Leading expert in sustainable urban development.",
     image: images.guests[2],
+  },
+  {
+    name: "Mamatha Madireddy",
+    role: "HSBC- GCC",
+    bio: "Managing Director",
+    image: images.guests[3],
+  },
+  {
+    name: "Srinivas Rao Mahankali",
+    role: "T-Hub",
+    bio: "Chief Executive Officer - T -Hub",
+    image: images.guests[4],
+  },
+  {
+    name: "Upasana Konidela",
+    role: "Apollo Group of Hospitals",
+    bio: "Vice Chairperson",
+    image: images.guests[5],
   },
 ];
 
@@ -87,7 +105,7 @@ export default function Guests() {
                   src={guest.image}
                   alt={guest.name}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-fill transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
               <h3 className="mb-1 text-xl font-bold text-white">

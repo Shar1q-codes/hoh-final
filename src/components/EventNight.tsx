@@ -19,7 +19,7 @@ const eventDetails = [
   {
     title: "Celebration",
     description: "An evening of celebration, inspiration, and recognition.",
-    image: images.communityLeaders,
+    image: images.celebration,
   },
 ];
 
@@ -84,7 +84,7 @@ export default function EventNight() {
                   src={detail.image}
                   alt={detail.title}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-cover  transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
               <h3 className="mb-2 text-xl font-bold text-white">

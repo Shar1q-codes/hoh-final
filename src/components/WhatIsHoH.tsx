@@ -95,7 +95,7 @@ export default function WhatIsHoH() {
                 src={images.communityLeaders}
                 alt="Community Leaders"
                 fill
-                className="rounded-lg object-cover"
+                className="rounded-lg object-fit"
               />
             </motion.div>
             <motion.div
@@ -105,12 +105,12 @@ export default function WhatIsHoH() {
               viewport={{ once: true }}
               className="absolute -bottom-8 -right-8 h-[200px] w-[200px] md:h-[250px] md:w-[250px]"
             >
-              <Image
+              {/* <Image
                 src={images.flag}
                 alt="Innovators"
                 fill
                 className="rounded-lg object-cover"
-              />
+              /> */}
             </motion.div>
           </div>
         </div>

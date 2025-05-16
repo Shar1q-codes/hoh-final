@@ -8,7 +8,7 @@ import WhyNow from "@/components/WhyNow";
 import WhoNominate from "@/components/WhoNominate";
 import WhyUnique from "@/components/WhyUnique";
 import EventNight from "@/components/EventNight";
-import NominateNow from "@/components/NominateNow";
+// import NominateNow from "@/components/NominateNow";
 import Jury from "@/components/Jury";
 import Guests from "@/components/Guests";
 import Advisory from "@/components/Advisory";
@@ -122,14 +122,14 @@ export default function Home() {
               </div>
             </ParallaxWrapper>
 
-            <ParallaxWrapper
+            {/* <ParallaxWrapper
               speed={0.2}
               className="relative z-30 section-spacing"
             >
               <div id="nominate" className="scroll-mt-20">
                 <NominateNow />
               </div>
-            </ParallaxWrapper>
+            </ParallaxWrapper> */}
 
             <ParallaxWrapper
               speed={0.2}
