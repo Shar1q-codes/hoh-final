@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Lora } from "next/font/google";
 import "./globals.css";
 import LoadingWrapper from "@/components/LoadingWrapper";
+// ✅ NEW IMPORT
 
 const poppins = Poppins({
   subsets: ["latin"],

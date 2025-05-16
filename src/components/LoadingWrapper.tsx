@@ -1,15 +1,16 @@
-'use client'
+"use client";
 
-import { AnimatePresence } from 'framer-motion'
-import LoadingScreen from './LoadingScreen'
-import { useLoadingState } from '@/hooks/useLoadingState'
+import { AnimatePresence } from "framer-motion";
+import LoadingScreen from "./LoadingScreen";
+import { useLoadingState } from "@/hooks/useLoadingState";
+import FloatingNominateButton from "@/components/FloatingNominateButton"; // ✅
 
 export default function LoadingWrapper({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  const isLoading = useLoadingState()
+  const isLoading = useLoadingState();
 
   return (
     <AnimatePresence mode="wait">
@@ -18,8 +19,11 @@ export default function LoadingWrapper({
       ) : (
         <div key="content">
           {children}
+
+          {/* ✅ Show button only when loading ends */}
+          <FloatingNominateButton />
         </div>
       )}
     </AnimatePresence>
-  )
-} 
+  );
+}

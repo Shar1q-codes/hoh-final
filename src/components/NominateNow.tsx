@@ -2,30 +2,31 @@
 
 import { useState, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-// import { fadeIn, slideUp } from '@/utils/animations'
 import Image from "next/image";
 import { images } from "@/utils/images";
 
-// const categories = [
-//   "Community Leader",
-//   "Innovator",
-//   "Educator",
-//   "Healthcare Hero",
-//   "Environmental Champion",
-//   "Cultural Ambassador",
-//   "Youth Leader",
-//   "Social Entrepreneur",
-// ];
+interface NominateNowProps {
+  isModal?: boolean;
+  onClose?: () => void;
+}
 
-const NominateNow = () => {
+const NominateNow = ({ isModal = false, onClose }: NominateNowProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  const yRaw = useTransform(scrollYProgress, [0, 1], ["20%", "-20%"]);
+  const opacityRaw = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.8, 1],
+    [0, 1, 1, 0]
+  );
+
+  const y = isModal ? undefined : yRaw;
+  const opacity = isModal ? undefined : opacityRaw;
 
   const [formData, setFormData] = useState({
     name: "",
@@ -41,8 +42,10 @@ const NominateNow = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
     console.log("Form submitted:", formData);
+
+    // ✅ Close modal after form submission
+    if (onClose) onClose();
   };
 
   const handleChange = (
@@ -53,9 +56,14 @@ const NominateNow = () => {
   };
 
   return (
-    <div ref={containerRef} className="relative min-h-screen bg-black py-20">
+    <div
+      ref={containerRef}
+      className={`relative ${
+        isModal ? "min-h-[90vh]" : "min-h-screen"
+      } bg-black py-20`}
+    >
       {/* Background with Parallax */}
-      <motion.div style={{ y }} className="absolute inset-0 z-0">
+      <motion.div style={isModal ? {} : { y }} className="absolute inset-0 z-0">
         <div className="relative h-full w-full">
           <Image
             src={images.crowdCelebration}
@@ -69,7 +77,7 @@ const NominateNow = () => {
 
       {/* Content */}
       <motion.div
-        style={{ opacity }}
+        style={isModal ? {} : { opacity }}
         className="relative z-10 mx-auto max-w-7xl px-4"
       >
         <motion.div
