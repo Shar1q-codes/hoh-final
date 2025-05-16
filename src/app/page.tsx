@@ -33,26 +33,20 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      {/* Global background fallback */}
-      {/* <div className="fixed top-0 left-0 w-full h-full bg-white -z-20" /> */}
+    <div className="relative min-h-screen bg-black">
+      <Navigation />
 
-      <div className="relative z-0">
-        <Navigation />
-
-        {/* Hero Section - Topmost Layer */}
-        <div id="intro" className="relative z-[100]">
+      {/* Hero Section - Isolated Stacking Context */}
+      <div className="relative isolate">
+        <div id="intro" className="relative z-[150]">
           <IntroScene />
         </div>
+      </div>
 
-        {/* Other Sections - Muted Until Intro Completes */}
-        <div
-          className={`${
-            introLock ? "pointer-events-none opacity-0" : "opacity-100"
-          } transition-opacity duration-700`}
-        >
-          {/* FIX: Add spacing so section appears after hero finishes */}
-          <ParallaxWrapper speed={0.2} className="relative z-40 mt-[50vh]">
+      {/* Other Sections - Separate Stacking Context */}
+      {!introLock && (
+        <div className="relative z-[50]">
+          <ParallaxWrapper speed={0.2} className="relative mt-[130vh]">
             <div id="what-is-hoh">
               <WhatIsHoH />
             </div>
@@ -141,7 +135,7 @@ export default function Home() {
 
           <Footer />
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 }

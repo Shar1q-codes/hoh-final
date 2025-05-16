@@ -13,39 +13,43 @@ export default function IntroScene() {
     offset: ["start start", "end start"],
   });
 
-  // Background Zoom-Out & Fade
-  const bgScale = useTransform(scrollYProgress, [0, 1], [1, 3]);
-  const bgOpacity = useTransform(scrollYProgress, [0, 1], [1, 0.5]);
+  // Scene fade out
+  const sceneOpacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const sceneScale = useTransform(scrollYProgress, [0, 1], [1, 1.5]);
 
-  // Content Motion
+  // Content motion
   const contentOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
-  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
+  const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-100px"]);
 
   return (
-    <div
-      ref={containerRef}
-      className="relative h-[200vh] z-[100]" // ✅ Top layer scroll trap
-    >
-      {/* Sticky Hero Layer */}
-      <div className="sticky top-0 h-screen min-h-[600px] overflow-hidden origin-top">
-        {/* Background Charminar */}
+    <div ref={containerRef} className="h-[130vh] relative z-[10]">
+      {/* Fullscreen Fixed Layer */}
+      <motion.div
+        style={{ opacity: sceneOpacity }}
+        className="fixed top-0 left-0 w-full h-screen z-[150] bg-black isolate overflow-hidden"
+      >
+        {/* Background Image */}
         <motion.div
-          style={{ scale: bgScale, opacity: bgOpacity }}
-          className="absolute top-0 left-0 w-full h-full z-10 overflow-hidden origin-top"
+          style={{ scale: sceneScale }}
+          className="absolute inset-0 z-10"
         >
           <Image
             src={images.hyderabadSkyline}
             alt="Center Charminar"
             fill
-            className="object-fit max-w-none"
             priority
+            className="object-fit"
           />
         </motion.div>
 
-        {/* HERO CONTENT */}
+        {/* Hero Content */}
         <motion.div
-          style={{ opacity: contentOpacity, scale: contentScale, y: contentY }}
+          style={{
+            opacity: contentOpacity,
+            scale: contentScale,
+            y: contentY,
+          }}
           className="relative z-20 flex h-full flex-col items-center justify-center px-4 text-center text-white"
         >
           <motion.h1
@@ -80,7 +84,7 @@ export default function IntroScene() {
           </motion.div>
         </motion.div>
 
-        {/* SCROLL INDICATOR */}
+        {/* Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -99,7 +103,7 @@ export default function IntroScene() {
             />
           </div>
         </motion.div>
-      </div>
+      </motion.div>
     </div>
   );
 }

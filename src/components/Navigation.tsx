@@ -51,7 +51,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <nav className="fixed top-0 left-0 right-0 z-[200] bg-transparent">
       {/* Desktop Layout */}
       <div className="hidden md:grid grid-cols-5 h-24 items-center text-white max-w-[1920px] mx-auto px-6">
         {navItems.slice(0, 2).map((item) => (
