@@ -15,9 +15,23 @@ import Advisory from "@/components/Advisory";
 import Sponsors from "@/components/Sponsors";
 import Footer from "@/components/Footer";
 import ParallaxWrapper from "@/components/ParallaxWrapper";
+import Modal from "@/components/Modal"; // ✅ Import the modal directly
 
 export default function Home() {
   const [introLock, setIntroLock] = useState(true);
+
+  // Modal State
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalTitle, setModalTitle] = useState("");
+  const [modalContent, setModalContent] = useState("");
+
+  const openModal = (title: string, content: string) => {
+    setModalTitle(title);
+    setModalContent(content);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => setIsModalOpen(false);
 
   useEffect(() => {
     if (introLock) {
@@ -122,10 +136,7 @@ export default function Home() {
               </div>
             </ParallaxWrapper>
 
-            {/* <ParallaxWrapper
-              speed={0.2}
-              className="relative z-30 section-spacing"
-            >
+            {/* <ParallaxWrapper speed={0.2} className="relative z-30 section-spacing">
               <div id="nominate" className="scroll-mt-20">
                 <NominateNow />
               </div>
@@ -140,10 +151,17 @@ export default function Home() {
               </div>
             </ParallaxWrapper>
 
-            <Footer />
+            <Footer openModal={openModal} />
           </>
         )}
       </div>
+
+      {/* ✅ Global Modal Rendered on Top Layer */}
+      {isModalOpen && (
+        <div className="z-[999] fixed inset-0">
+          <Modal title={modalTitle} body={modalContent} onClose={closeModal} />
+        </div>
+      )}
     </>
   );
 }

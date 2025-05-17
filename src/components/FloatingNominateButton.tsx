@@ -32,7 +32,7 @@ const FloatingNominateButton = () => {
           <div className="h-[45vh] w-[2px] bg-white/60 animate-pulse" />
           <button
             onClick={() => setShowModal(true)}
-            className="rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 px-6 py-3 font-bold text-black text-sm shadow-2xl hover:scale-105 transition-transform glow-effect origin-top"
+            className="rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 px-6 py-3 font-bold text-black text-sm shadow-2xl hover:scale-105 transition-transform glow-effect origin-top cursor-pointer"
           >
             Nominate Now
           </button>

@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { images } from "@/utils/images";
+import { useMotionValueEvent } from "framer-motion";
 
 export default function IntroScene() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -28,17 +29,26 @@ export default function IntroScene() {
   });
 
   const sceneOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
+  const sceneVisibility = useTransform(scrollYProgress, (value) =>
+    value < 0.6 ? "visible" : "hidden"
+  );
   const sceneScale = useTransform(scrollYProgress, [0, 1], [1, 3]);
 
   const contentOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
   const contentScale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-100px"]);
+  const [pointerActive, setPointerActive] = useState(true);
 
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setPointerActive(latest < 0.6); // disable pointer when fully faded out
+  });
   return (
     <div ref={containerRef} className="h-[100vh] relative z-[10]">
       <motion.div
-        style={{ opacity: sceneOpacity }}
-        className="fixed top-0 left-0 w-full h-screen z-[150] bg-black isolate overflow-hidden"
+        style={{ opacity: sceneOpacity, visibility: sceneVisibility }}
+        className={`fixed top-0 left-0 w-full h-screen z-[150] bg-black isolate overflow-hidden ${
+          pointerActive ? "pointer-events-auto" : "pointer-events-none"
+        }`}
       >
         <motion.div
           style={{ scale: sceneScale }}

@@ -42,7 +42,7 @@ const Modal: React.FC<ModalProps> = ({ title, body, onClose }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <button
-            className="absolute right-4 top-4 text-2xl text-white/70 hover:text-gold focus:outline-none"
+            className="absolute right-4 top-4 text-2xl text-white/70 hover:text-gold focus:outline-none cursor-pointer"
             onClick={onClose}
           >
             &times;

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { fadeIn, slideUp } from "@/utils/animations";
 
@@ -40,19 +40,19 @@ const sponsors = [
 
 const Sponsors = () => {
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ["start end", "end start"],
+  // });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
+  // const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  // const opacity = useTransform(scrollYProgress, [0, 0.5, 1], [0, 1, 0]);
 
   return (
     <section
       ref={ref}
       id="sponsors"
-      className="relative min-h-screen bg-black py-20"
+      className="relative min-h-screen bg-black pt-20"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -122,10 +122,10 @@ const Sponsors = () => {
       </div>
 
       {/* Background Gradient */}
-      <motion.div style={{ y, opacity }} className="absolute inset-0 -z-10">
+      {/* <motion.div style={{ y, opacity }} className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-black" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,_rgba(212,175,55,0.05),_transparent_50%)]" />
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 };
