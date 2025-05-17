@@ -16,6 +16,7 @@ import Sponsors from "@/components/Sponsors";
 import Footer from "@/components/Footer";
 import ParallaxWrapper from "@/components/ParallaxWrapper";
 import Modal from "@/components/Modal"; // ✅ Import the modal directly
+import SpinningCarousel from "@/components/SpinningCarousel";
 
 export default function Home() {
   const [introLock, setIntroLock] = useState(true);
@@ -71,6 +72,9 @@ export default function Home() {
               <div id="what-is-hoh">
                 <WhatIsHoH />
               </div>
+            </ParallaxWrapper>
+            <ParallaxWrapper speed={0.3} className="relative z-30">
+              <SpinningCarousel />
             </ParallaxWrapper>
 
             <ParallaxWrapper
