@@ -42,7 +42,7 @@ export default function Home() {
 
     const timer = setTimeout(() => {
       setIntroLock(false);
-    }, 3000);
+    }, 100);
 
     return () => {
       clearTimeout(timer);
